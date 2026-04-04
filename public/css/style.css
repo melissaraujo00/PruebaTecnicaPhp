@@ -1,0 +1,49 @@
+/* --- Estilos para Custom Data Table --- */
+
+.custom-data-table {
+    color: #55595c; /* Color de texto gris oscuro pero suave */
+    font-size: 0.88rem; /* Letra ligeramente más pequeña para que quepan los datos */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Encabezados de la tabla */
+.custom-data-table thead th {
+    color: #3b4c5e; /* Azul oscuro/grisáceo */
+    font-weight: 700;
+    border-bottom: 2px solid #f0f0f0 !important;
+    border-top: none !important;
+    padding: 12px 10px;
+    white-space: nowrap;
+    cursor: pointer; /* Indica que se puede hacer clic para ordenar */
+}
+
+/* Iconos de ordenamiento en el encabezado */
+.custom-data-table thead th .sort-icon {
+    font-size: 0.7rem;
+    color: #c4cdd5;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* Celdas del cuerpo */
+.custom-data-table tbody td {
+    vertical-align: middle;
+    padding: 14px 10px;
+    border-top: 1px solid #f8f9fa; /* Borde muy sutil entre filas */
+}
+
+/* Efecto Cebra (Filas alternas) - Igualando el fondo gris de la imagen */
+.custom-data-table tbody tr.striped-row,
+.custom-data-table tbody tr:nth-child(even) {
+    background-color: #f9fbfd; /* Un gris muy claro con un tono casi imperceptible de azul */
+}
+
+/* Efecto hover al pasar el ratón */
+.custom-data-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Ajustes tipográficos menores */
+.font-weight-medium {
+    font-weight: 500;
+}
