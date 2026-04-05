@@ -162,8 +162,8 @@ $tituloFormulario = $isEdit ? 'Editar Cliente' : 'Registrar Cliente';
             </div>
 
             <div class="col-12 text-end mt-2">
-                <button type="submit" class="btn <?= $isEdit ? 'btn-primary' : 'btn-success' ?> px-4 py-2 shadow-sm" style="border:none;">
-                    <?= $isEdit ? '&#128190; Actualizar Cliente' : '+ Agregar' ?>
+                <button type="submit" class="btn <?= $isEdit ? 'btn-warning' : 'btn-success' ?> px-4 py-2 shadow-sm" style="border:none;">
+                    <?= $isEdit ? '+ Actualizar ' : '+ Agregar' ?>
                 </button>
             </div>
         </div>

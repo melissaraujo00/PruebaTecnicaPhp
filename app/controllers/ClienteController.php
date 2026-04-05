@@ -162,4 +162,50 @@ class ClienteController extends Controller
         exit;
     }
 
+    // Ver detalles del cliente
+    public function show($param_basura = null)
+    {
+        $id = $_GET['id'] ?? null;
+
+        if (!$id || !is_numeric($id)) {
+            $_SESSION['error'] = 'ID de cliente inválido.';
+            header('Location: ' . APP_URL . '/clientes');
+            exit;
+        }
+
+        $cliente = $this->clienteModel->getClientWithFullDetails($id);
+
+        if (!$cliente) {
+            $_SESSION['error'] = 'Cliente no encontrado.';
+            header('Location: ' . APP_URL . '/clientes');
+            exit;
+        }
+
+        $this->view('clientes/show', [
+            'title' => 'Perfil del Cliente',
+            'cliente' => $cliente
+        ]);
+    }
+
+    // Eliminar cliente
+    public function delete($param_basura = null)
+    {
+        $id = $_GET['id'] ?? null;
+
+        if (!$id || !is_numeric($id)) {
+            $_SESSION['error'] = 'ID de cliente inválido.';
+            header('Location: ' . APP_URL . '/clientes');
+            exit;
+        }
+
+        if ($this->clienteModel->delete($id)) {
+            $_SESSION['success'] = 'Cliente eliminado correctamente.';
+        } else {
+
+            $_SESSION['error'] = 'No se pudo eliminar. Es posible que el cliente tenga registros o comprobantes asociados.';
+        }
+
+        header('Location: ' . APP_URL . '/clientes');
+        exit;
+    }
 }

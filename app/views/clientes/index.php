@@ -7,7 +7,7 @@
         <h2 class="text-secondary mb-0" style="color: #7b8fa3 !important; font-weight: 500;">
             <?= $title ?? 'Clientes' ?>
         </h2>
-        <a href="#" id="btnNuevoCliente" class="btn btn-primary rounded text-white shadow-sm px-3 py-2" style="background-color: #0d6efd; border: none;">
+        <a href="#" id="btnNuevoCliente" class="btn btn-secondary rounded text-white shadow-sm px-3 py-2" style="background-color: #0d6efd; border: none;">
             + Nuevo Cliente
         </a>
     </div>

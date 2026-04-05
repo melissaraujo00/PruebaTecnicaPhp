@@ -35,6 +35,9 @@
                     <td><?= htmlspecialchars($c['nrc'] ?? 'N/A') ?></td>
                     <td><?= htmlspecialchars($c['correo'] ?? '') ?></td>
                     <td class="text-center">
+                        <a href="<?= APP_URL ?>/clientes/show?id=<?= $c['id_catalogo_cliente'] ?>" class="text-info text-decoration-none me-2" title="Ver Detalles">
+                            <i class="fas fa-eye"></i>
+                        </a>
                        <a href="<?= APP_URL ?>/clientes/edit?id=<?= $c['id_catalogo_cliente'] ?>" class="text-primary text-decoration-none me-2" title="Editar">
                             <i class="fas fa-edit"></i>
                         </a>

@@ -94,4 +94,39 @@ class ClienteModel extends Model
             return false;
         }
     }
+
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE id_catalogo_cliente = :id";
+        $stmt = $this->db->prepare($sql);
+        
+        try {
+            return $stmt->execute(['id' => $id]);
+        } catch (PDOException $e) {
+            return false; 
+        }
+    }
+
+
+    public function getClientWithFullDetails($id)
+    {
+        $sql = "SELECT c.*, 
+                       td.tipo_documento AS nombre_documento, 
+                       tc.tipo_contribuyente AS nombre_contribuyente,
+                       d.departamento AS nombre_departamento,
+                       m.municipio AS nombre_municipio,
+                       a.actividad_economica AS nombre_giro
+                FROM {$this->table} c
+                LEFT JOIN venta_mh_tipo_documento td ON c.cod_tipo_documento = td.id_tipo_documento
+                LEFT JOIN venta_mh_tipo_contribuyente tc ON c.fk_id_tipo_contribuyente = tc.id_tipo_contribuyente
+                LEFT JOIN venta_mh_departamento d ON c.cod_departamento = d.id_departamento
+                LEFT JOIN venta_mh_municipio m ON c.cod_municipio = m.id_municipio
+                LEFT JOIN venta_mh_actividad_economica a ON c.cod_actividad_economica = a.id_actividad_economica
+                WHERE c.id_catalogo_cliente = :id";
+                
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
