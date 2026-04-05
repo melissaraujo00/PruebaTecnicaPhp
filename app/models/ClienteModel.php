@@ -56,4 +56,20 @@ class ClienteModel extends Model
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function insert($data)
+    {
+        $columnas = implode(', ', array_keys($data));
+        
+        $placeholders = ':' . implode(', :', array_keys($data));
+        $sql = "INSERT INTO {$this->table} ($columnas) VALUES ($placeholders)";
+        
+        $stmt = $this->db->prepare($sql);
+
+        try {
+            return $stmt->execute($data);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }

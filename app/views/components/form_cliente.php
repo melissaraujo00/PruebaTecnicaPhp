@@ -136,7 +136,7 @@
 
             <div class="col-md-6 mb-3 campo-dinamico" id="col_ciudad">
                 <label class="form-label text-muted small fw-bold mb-1">Ciudad</label>
-                <input type="text" class="form-control form-control-sm border-light-subtle shadow-none input-dinamico" name="ciudad" id="ciudad">
+                <input type="text" class="form-control form-control-sm border-light-subtle shadow-none input-dinamico" name="ciudad" id="ciudad" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios">>
             </div>
 
             <div class="col-12 text-end mt-2">
