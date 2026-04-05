@@ -35,8 +35,13 @@
                     <td><?= htmlspecialchars($c['nrc'] ?? 'N/A') ?></td>
                     <td><?= htmlspecialchars($c['correo'] ?? '') ?></td>
                     <td class="text-center">
-                        <a href="<?= APP_URL ?>/clientes/edit/<?= $c['id_catalogo_cliente'] ?>" class="text-primary text-decoration-none" title="Editar">&#9998;</a>
-                        <a href="<?= APP_URL ?>/clientes/delete/<?= $c['id_catalogo_cliente'] ?>" class="text-danger text-decoration-none ms-2" title="Eliminar" onclick="return confirm('¿Eliminar?')">&#128465;</a>
+                       <a href="<?= APP_URL ?>/clientes/edit?id=<?= $c['id_catalogo_cliente'] ?>" class="text-primary text-decoration-none me-2" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <a href="<?= APP_URL ?>/clientes/delete?id=<?= $c['id_catalogo_cliente'] ?>" class="text-danger text-decoration-none" title="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>

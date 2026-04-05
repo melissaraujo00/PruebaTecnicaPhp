@@ -35,12 +35,14 @@ document.addEventListener("DOMContentLoaded", function() {
             contenedorFormulario.classList.remove('d-none');
         });
 
-        btnCerrarFormulario.addEventListener('click', function() {
-            contenedorFormulario.classList.add('d-none');
-            camposRestantes.classList.add('d-none');
-            formCrearCliente.reset();
-        });
 
+        if (btnCerrarFormulario) {
+            btnCerrarFormulario.addEventListener('click', function() {
+                contenedorFormulario.classList.add('d-none');
+                camposRestantes.classList.add('d-none');
+                formCrearCliente.reset();
+            });
+        }
 
         selectTipoCliente.addEventListener('change', function() {
             const tipo = this.value;
@@ -71,17 +73,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     if(inputElement) {
                         inputElement.disabled = true;         
                         inputElement.required = false;
-                        inputElement.value = "";              
+                        
                     }
                 }
             });
-
 
             const selectDoc = document.getElementById('cod_tipo_documento');
             if(tipo === "1" && selectDoc) selectDoc.value = "2"; 
             if(tipo === "2" && selectDoc) selectDoc.value = "1"; 
             if(tipo === "3" && selectDoc) selectDoc.value = "3"; 
         });
+
+        if (selectTipoCliente && selectTipoCliente.value !== "") {
+            selectTipoCliente.dispatchEvent(new Event('change'));
+        }
     }
 
     

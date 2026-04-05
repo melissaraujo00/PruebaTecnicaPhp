@@ -72,4 +72,26 @@ class ClienteModel extends Model
             return false;
         }
     }
+
+
+    // Actualiza un registro dinámicamente
+    public function update($id, $data)
+    {
+        $campos = '';
+        foreach ($data as $key => $value) {
+            $campos .= "$key = :$key, ";
+        }
+        $campos = rtrim($campos, ', '); 
+        $sql = "UPDATE {$this->table} SET $campos WHERE id_catalogo_cliente = :id";
+        
+        $data['id'] = $id;
+        
+        $stmt = $this->db->prepare($sql);
+
+        try {
+            return $stmt->execute($data);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }

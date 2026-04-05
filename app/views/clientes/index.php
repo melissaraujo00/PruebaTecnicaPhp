@@ -18,7 +18,9 @@
         'departamentos' => $departamentos,
         'actividades' => $actividades,
         'tiposContribuyente' => $tiposContribuyente,
-        'tiposDocumento' => $tiposDocumento
+        'tiposDocumento' => $tiposDocumento,
+        'municipios' => $municipios,
+        'cliente_edit' => $cliente_edit ?? null
     ]); ?>
 
     <?php render_component('table_clientes', [
