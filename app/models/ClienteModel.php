@@ -46,4 +46,14 @@ class ClienteModel extends Model
         $stmt = $this->db->query("SELECT id_tipo_documento, tipo_documento, cod_tipo_documento FROM venta_mh_tipo_documento WHERE estado = '1'");
         return $stmt->fetchAll();
     }
+
+    // Obtener TODOS los municipios 
+    public function getTodosLosMunicipios()
+    {
+        $sql = "SELECT id_municipio, municipio, cod_mh_departamento 
+                FROM venta_mh_municipio 
+                ORDER BY municipio ASC";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

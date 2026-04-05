@@ -9,6 +9,7 @@ $dotenv->load(__DIR__ . '/../.env');
 
 session_start();
 require_once __DIR__ . '/../app/Config/config.php';
+require_once __DIR__ . '/../app/helpers/components_helper.php';
 require_once APP_ROOT . '/Core/Database.php';
 require_once APP_ROOT . '/Core/Model.php';
 require_once APP_ROOT . '/Core/Controller.php';
