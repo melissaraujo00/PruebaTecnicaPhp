@@ -25,6 +25,9 @@ Este repositorio contiene un sistema de gestion de clientes (CRUD completo) desa
 
 El codigo sigue una estructura de directorios estandar para el patron MVC:
 
+
+```text
+/
 ├── app/
 │   ├── Controllers/   # Lógica de intermediación y peticiones HTTP
 │   ├── Core/          # Clases base del framework (App, Controller, Model)
