@@ -25,14 +25,14 @@ Este repositorio contiene un sistema de gestion de clientes (CRUD completo) desa
 
 El codigo sigue una estructura de directorios estandar para el patron MVC:
 
-/app
-  /Controllers   # Logica de intermediacion y peticiones HTTP
-  /Core          # Clases base del framework (App, Controller, Model)
-  /helpers       # Clases de apoyo como Validadores y renderizadores de vistas
-  /Models        # Consultas SQL y metodos de base de datos
-  /Views         # Archivos HTML/PHP de presentacion agrupados por modulo
-/public
-  /css           # Hojas de estilo personalizadas
-  /js            # Scripts de interaccion dinamica del lado del cliente
-index.php        # Punto de entrada de la aplicacion (Front Controller)
-.htaccess        # Reglas de reescritura de URLs
+├── app/
+│   ├── Controllers/   # Lógica de intermediación y peticiones HTTP
+│   ├── Core/          # Clases base del framework (App, Controller, Model)
+│   ├── helpers/       # Clases de apoyo como Validadores y renderizadores de vistas
+│   ├── Models/        # Consultas SQL y métodos de base de datos
+│   └── Views/         # Archivos HTML/PHP de presentación agrupados por módulo
+├── public/
+│   ├── css/           # Hojas de estilo personalizadas
+│   └── js/            # Scripts de interacción dinámica del lado del cliente
+├── index.php          # Punto de entrada de la aplicación (Front Controller)
+└── .htaccess          # Reglas de reescritura de URLs
